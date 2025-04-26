@@ -41,7 +41,8 @@ export const getContacts = async ({
     ...paginationData,
   };
 };
-export const getContactById = (id) => ContactCollection.findOne({ _id: id });
+export const getContactById = (id, userId) =>
+  ContactCollection.findOne({ _id: id, userId });
 export const createContact = async (payload) =>
   await ContactCollection.create(payload);
 export const updateContact = async (id, payload, options = {}) => {
@@ -57,5 +58,5 @@ export const updateContact = async (id, payload, options = {}) => {
     isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
-export const deleteContact = (id) =>
-  ContactCollection.findOneAndDelete({ _id: id });
+export const deleteContact = (id, userId) =>
+  ContactCollection.findOneAndDelete({ _id: id, userId });
