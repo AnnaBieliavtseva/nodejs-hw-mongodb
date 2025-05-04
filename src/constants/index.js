@@ -18,3 +18,5 @@ export const CLOUDINARY = {
 export const TEMP_UPLOAD_DIR = path.resolve('src', 'temp');
 
 export const TEMPLATES_DIR = path.resolve('src', 'templates');
+
+export const SWAGGER_PATH = path.resolve('docs', 'swagger.json');
