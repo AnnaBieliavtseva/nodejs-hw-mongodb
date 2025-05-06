@@ -21,10 +21,6 @@
     {
       "name": "Contacts",
       "description": "Operations about user contacts."
-    },
-    {
-      "name": "Auth",
-      "description": "Auth operations."
     }
   ],
   "paths": {
@@ -228,11 +224,6 @@
                       "personal"
                     ]
                   },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
-                  },
                   "photo": {
                     "description": "Link to contact's photo",
                     "type": "string",
@@ -333,6 +324,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
           "401": {
             "$ref": "#/components/responses/401"
           }
@@ -396,11 +390,6 @@
                       "personal"
                     ]
                   },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
-                  },
                   "photo": {
                     "description": "Link to contact's photo",
                     "type": "string",
@@ -440,6 +429,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -488,6 +480,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -562,6 +557,30 @@
       }
     },
     "responses": {
+      "400": {
+        "description": "Invalid contact's id",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status",
+                "message"
+              ],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Id 65ca67e7ae7f10c88b598384 is invalid"
+                }
+              }
+            }
+          }
+        }
+      },
       "401": {
         "description": "Unauthorized error",
         "content": {

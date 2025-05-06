@@ -22,11 +22,7 @@ export const setupServer = () => {
       },
     }),
   );
-  // app.get('/', (req, res) => {
-  //   res.json({
-  //     message: 'Hello, World!',
-  //   });
-  // });
+
   app.use('/auth', authRouter);
   app.use('/contacts', contactsRouter);
   app.use('/api-docs', swaggerDocs());
